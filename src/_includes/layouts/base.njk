@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {% if env == 'production' %} {% set css %}{% include style.min.css %}{%
+    endset %}
+    <style>
+      {{ css | safe }}
+    </style>
+    {% else %}
+    <link rel="stylesheet" href="/static/style.css" />
+    {% endif %}
+
+    <title>Document</title>
+
+    <!-- Alpine JS Loader -->
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.6.0/dist/alpine.min.js"
+      defer
+    ></script>
+  </head>
+  <body class="antialiased bg-gray-600">
+    {{ content | safe }}
+  </body>
+</html>
